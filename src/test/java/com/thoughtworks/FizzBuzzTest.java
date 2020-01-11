@@ -30,8 +30,21 @@ public class FizzBuzzTest {
         );
     }
 
+    private static Stream<Arguments> multiDividableNumberAndResultProvider() {
+        return Stream.of(
+                arguments(15, "FizzBuzz"),
+                arguments(21, "FizzWhizz"),
+                arguments(35, "BuzzWhizz"),
+                arguments(105, "FizzBuzzWhizz")
+        );
+    }
+
     @ParameterizedTest
-    @MethodSource({"dividableNumberAndResultProvider", "commonNumberAndResultProvider"})
+    @MethodSource({
+            "dividableNumberAndResultProvider",
+            "commonNumberAndResultProvider",
+            "multiDividableNumberAndResultProvider"
+    })
     public void test_fizz_buzz(int number, String result) {
         fizzBuzz = new FizzBuzz();
         assertEquals(result, fizzBuzz.fizzBuzz(number));
