@@ -11,6 +11,15 @@ class FizzBuzz {
             result += getAddOnIfDividableBy7(number);
             return result;
         }
+        if (numberString.contains("7")) {
+            if (numberString.contains("3")) {
+                return "Fizz";
+            }
+            String result = "";
+            result += getAddOnIfDividableBy3(number);
+            result += getAddOnIfDividableBy7(number);
+            return result.equals("") ? numberString : result;
+        }
 
         String result = "";
         result = handleDividableNumber(number, result);
