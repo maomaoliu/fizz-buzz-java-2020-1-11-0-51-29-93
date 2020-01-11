@@ -8,9 +8,7 @@ class FizzBuzz {
         }
         if (numberString.contains("5") && !numberString.contains("7")) {
             String result = "Buzz";
-            if (number % 7 == 0) {
-                result += "Whizz";
-            }
+            result += getAddOnIfDividableBy7(number);
             return result;
         }
 
@@ -20,15 +18,21 @@ class FizzBuzz {
     }
 
     private String handleDividableNumber(int number, String result) {
-        if (number % 3 == 0) {
-            result += "Fizz";
-        }
-        if (number % 5 == 0) {
-            result += "Buzz";
-        }
-        if (number % 7 == 0) {
-            result += "Whizz";
-        }
+        result += getAddOnIfDividableBy3(number);
+        result += getAddOnIfDividableBy5(number);
+        result += getAddOnIfDividableBy7(number);
         return result;
+    }
+
+    private String getAddOnIfDividableBy3(int number) {
+        return number % 3 == 0 ? "Fizz" : "";
+    }
+
+    private String getAddOnIfDividableBy5(int number) {
+        return number % 5 == 0 ? "Buzz" : "";
+    }
+
+    private String getAddOnIfDividableBy7(int number) {
+        return number % 7 == 0 ? "Whizz" : "";
     }
 }
