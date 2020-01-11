@@ -25,14 +25,20 @@ public class FizzBuzzTest {
     private static Stream<Arguments> dividableNumberAndResultProvider() {
         return Stream.of(
                 arguments(3, "Fizz"),
+                arguments(6, "Fizz"),
                 arguments(5, "Buzz"),
-                arguments(7, "Whizz")
+                arguments(10, "Buzz"),
+                arguments(7, "Whizz"),
+                arguments(14, "Whizz")
         );
     }
 
     private static Stream<Arguments> multiDividableNumberAndResultProvider() {
         return Stream.of(
-                arguments(21, "FizzWhizz")
+                arguments(21, "FizzWhizz"),
+                arguments(60, "FizzBuzz"),
+                arguments(140, "BuzzWhizz"),
+                arguments(420, "FizzBuzzWhizz")
         );
     }
 
