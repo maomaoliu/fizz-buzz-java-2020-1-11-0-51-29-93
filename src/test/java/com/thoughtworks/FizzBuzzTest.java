@@ -39,11 +39,19 @@ public class FizzBuzzTest {
         );
     }
 
+    private static Stream<Arguments> Including3ButNot5NumberAndResultProvider() {
+        return Stream.of(
+                arguments(3, "Fizz"),
+                arguments(30, "Fizz")
+        );
+    }
+
     @ParameterizedTest
     @MethodSource({
             "dividableNumberAndResultProvider",
             "commonNumberAndResultProvider",
-            "multiDividableNumberAndResultProvider"
+            "multiDividableNumberAndResultProvider",
+            "Including3ButNot5NumberAndResultProvider"
     })
     public void test_fizz_buzz(int number, String result) {
         fizzBuzz = new FizzBuzz();
