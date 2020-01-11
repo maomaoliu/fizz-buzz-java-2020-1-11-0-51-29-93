@@ -32,10 +32,7 @@ public class FizzBuzzTest {
 
     private static Stream<Arguments> multiDividableNumberAndResultProvider() {
         return Stream.of(
-                arguments(15, "FizzBuzz"),
-                arguments(21, "FizzWhizz"),
-                arguments(35, "BuzzWhizz"),
-                arguments(105, "FizzBuzzWhizz")
+                arguments(21, "FizzWhizz")
         );
     }
 
@@ -46,12 +43,22 @@ public class FizzBuzzTest {
         );
     }
 
+    private static Stream<Arguments> Including5ButNot7NumberAndResultProvider() {
+        return Stream.of(
+                arguments(5, "Buzz"),
+                arguments(15, "Buzz"),
+                arguments(35, "BuzzWhizz"),
+                arguments(105, "BuzzWhizz")
+        );
+    }
+
     @ParameterizedTest
     @MethodSource({
             "dividableNumberAndResultProvider",
             "commonNumberAndResultProvider",
             "multiDividableNumberAndResultProvider",
-            "Including3ButNot5NumberAndResultProvider"
+            "Including3ButNot5NumberAndResultProvider",
+            "Including5ButNot7NumberAndResultProvider"
     })
     public void test_fizz_buzz(int number, String result) {
         fizzBuzz = new FizzBuzz();

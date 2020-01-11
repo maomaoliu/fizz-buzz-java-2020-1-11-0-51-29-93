@@ -6,6 +6,13 @@ class FizzBuzz {
         if (numberString.contains("3") && !numberString.contains("5")) {
             return "Fizz";
         }
+        if (numberString.contains("5") && !numberString.contains("7")) {
+            String result = "Buzz";
+            if (number % 7 == 0) {
+                result += "Whizz";
+            }
+            return result;
+        }
 
         String result = "";
         result = handleDividableNumber(number, result);
